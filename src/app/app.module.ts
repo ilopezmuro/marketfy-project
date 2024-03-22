@@ -7,6 +7,8 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { NavigationBarComponent } from './shared/navigation-bar/navigation-bar.component';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { ProductsListComponent } from './pages/products-list/products-list.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

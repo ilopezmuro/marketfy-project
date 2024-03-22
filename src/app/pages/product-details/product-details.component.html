@@ -13,13 +13,13 @@
         <div style="width: 90%; height: 500px;" class="mt-5 mb-5 mx-auto shadow-lg rounded-5 d-flex flex-column">
 
             <div class="bg-info w-100 text-light rounded-top-5 p-1 text-center">
-                <h1 class="fs-1">product title overview</h1>
+                <h1 class="fs-1">{{ productDetails.name }}</h1>
             </div>
 
             <div class="w-100 p-3 fs-4 mb-5">
-                <p>$ Price</p>
-                <p>Description</p>
-                <p>stock: 0</p>
+                <p>$ {{ productDetails.price }}</p>
+                <p>{{ productDetails.description }}</p>
+                <p>stock: {{ productDetails.total_products_inventory }}</p>
             </div>
 
             <hr class="mt-5" />
