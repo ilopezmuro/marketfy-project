@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  reactiveForm: FormGroup;
+  loginForm: FormGroup;
   responseThrewError: boolean = false;
 
   constructor(private http: HttpClient, private route: Router){
 
-    this.reactiveForm = new FormGroup({
+    this.loginForm = new FormGroup({
       email: new FormControl(null),
       password: new FormControl(null)
     });
@@ -28,8 +28,8 @@ export class LoginComponent {
     this.responseThrewError = false;
 
     let bodyRequest = {
-      "email": this.reactiveForm.controls['email'].value,
-      "password": this.reactiveForm.controls['password'].value
+      "email": this.loginForm.controls['email'].value,
+      "password": this.loginForm.controls['password'].value
     }
 
     this.http.post('http://localhost:8080/shoppingcart/v2/users/login', bodyRequest)
