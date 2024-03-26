@@ -1,0 +1,41 @@
+<app-navigation-bar></app-navigation-bar>
+
+    <h1 class="fs-1 text-center mt-5">Your wishlist</h1>
+
+    <table class="table table-bordered mt-5">
+
+        <thead>
+
+            <tr>
+
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">price</th>
+                <th scope="col">description</th>
+                <th scope="col">action</th>
+
+            </tr>
+
+        </thead>
+        
+        <tbody>
+
+        @for (item of wishlistItems; track $index) {
+
+            <tr>
+
+                <th scope="row">{{ item.wish_id }}</th>
+                <td scope="">{{ item.product_name }}</td>
+                <td scope="">{{ item.product_price }}</td>
+                <td scope="">{{ item.product_description }}</td>
+                <td scope="" class="d-flex justify-content-center">
+                    <button class="btn btn-primary">add to cart</button>
+                </td>
+
+            </tr>
+
+        }
+
+        </tbody>
+
+    </table>
