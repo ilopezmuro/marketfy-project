@@ -1,6 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { product } from '../../interfaces/product-interface';
+import type { product } from '../../interfaces/product-interface';
+import { SessionServiceService } from '../../services/session-service.service';
 
 @Component({
   selector: 'app-products-list',
