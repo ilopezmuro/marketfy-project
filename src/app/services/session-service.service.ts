@@ -14,8 +14,11 @@ export class SessionServiceService {
 
   getUserSession(){
 
-    console.log(localStorage.getItem('userSession'));
-    return localStorage.getItem('userSession');
+    let data = String(localStorage.getItem('userSession'));
+    let parsedData = JSON.parse(data);
+
+    console.log(parsedData);
+    return parsedData;
 
   }
 

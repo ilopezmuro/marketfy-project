@@ -1,0 +1,65 @@
+<app-navigation-bar></app-navigation-bar>
+
+<h1 class="fs-1 text-center">Cart checkout</h1>
+
+<div class="w-100 mt-3 mb-3 d-flex justify-content-center">
+
+    <button class="btn btn-warning" (click)="addToCart()">Add product</button>
+
+</div>
+
+<div class="container d-flex">
+    <div class="bg-warning col-7 p-2">
+
+        <table class="table table-stripped">
+
+            <thead>
+
+                <tr>
+                    <th scope="col">image</th>
+                    <th scope="col">product</th>
+                    <th scope="col">price</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @for (product of shoppingCart; track $index) {
+
+                    <tr>
+                        <td>
+                            <img width="100" height="100" src="https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/512x512/shadow/banana.png" alt="banana">
+                        </td>
+                        <td scope="row">{{ product.product_name }}</td>
+                        <td>$ {{ product.product_price }}</td>
+                    </tr>
+
+                }
+                <!--<tr>
+                    <td>
+                        <img width="100" height="100" src="https://d1nhio0ox7pgb.cloudfront.net/_img/v_collection_png/512x512/shadow/banana.png" alt="banana">
+                    </td>
+                    <td scope="row">product</td>
+                    <td>$ 5153</td>
+                </tr>-->
+                
+            </tbody>
+            
+        </table>
+
+    </div>
+    <div class="bg-danger col-5 p-2">
+
+        <div class="bg-light w-full p-3" style="height: 500px;">
+
+            <p class="fs-3">total to pay: $ {{ totalPrice }}</p>
+
+            <hr />
+
+            <button class="btn btn-primary w-100" [disabled]="clicked" (click)="proceedPayout(); clicked = true;">Pay</button>
+
+        </div>
+
+    </div>
+</div>

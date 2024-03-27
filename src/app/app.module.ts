@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
     ProductsListComponent,
     LoginComponent,
     RegisterUserComponent,
-    WishlistComponent
+    WishlistComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

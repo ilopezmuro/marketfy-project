@@ -6,13 +6,15 @@ import { ProductsListComponent } from './pages/products-list/products-list.compo
 import { LoginComponent } from './login/login.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: ProductsListComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterUserComponent },
-  { path: 'wishlist', component: WishlistComponent }
+  { path: 'wishlist', component: WishlistComponent },
+  { path: 'checkout', component: CheckoutComponent }
 ];
 
 @NgModule({
