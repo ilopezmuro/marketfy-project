@@ -1,2 +1,33 @@
 <app-navigation-bar></app-navigation-bar>
-<p>order-history works!</p>
+<h1 class="fs-1 text-center">Your order history</h1>
+<br />
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">product</th>
+            <th scope="col">price</th>
+            <th scope="col">date</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @for (item of orderHistoryDetails; track $index) {
+
+            <tr>
+                <th scope="row">{{ item.order_id }}</th>
+                <td>{{ item.product_name }}</td>
+                <td>$ {{ item.product_price }}</td>
+                <td>{{ item.order_date | date : 'longDate' }}</td>
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
