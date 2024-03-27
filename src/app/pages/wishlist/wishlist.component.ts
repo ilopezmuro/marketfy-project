@@ -17,7 +17,7 @@ export class WishlistComponent {
   constructor(private sessionService: SessionServiceService, private http: HttpClient) {
     
     this.userData = sessionService.getUserSession();
-    this.userId = JSON.parse(this.userData)['id'];
+    this.userId = this.userData['id'];
     console.log(this.userId);
 
     this.http.get<any[]>(`http://localhost:8080/shoppingcart/v2/wishlist/${ this.userId }/details`)
