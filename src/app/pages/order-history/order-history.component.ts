@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { SessionServiceService } from '../../services/session-service.service';
+import { orderitem } from '../../interfaces/order-item-interface';
 
 @Component({
   selector: 'app-order-history',
@@ -9,7 +10,7 @@ import { SessionServiceService } from '../../services/session-service.service';
 })
 export class OrderHistoryComponent {
 
-  orderHistoryDetails: any;
+  orderHistoryDetails: orderitem[] = [];
 
   constructor(private http: HttpClient, private sessionService: SessionServiceService) { 
 
