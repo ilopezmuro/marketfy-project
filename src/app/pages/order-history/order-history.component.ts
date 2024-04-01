@@ -13,7 +13,7 @@ export class OrderHistoryComponent {
 
   constructor(private http: HttpClient, private sessionService: SessionServiceService) { 
 
-    let userId = sessionService.getUserSession()['id'];
+    let userId = this.sessionService.userLoggedId;
 
     this.http.get<any[]>(`http://localhost:8080/shoppingcart/v2/products/${ userId }/order-details`)
     .subscribe( (response) => {

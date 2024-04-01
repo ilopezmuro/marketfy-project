@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SessionServiceService } from '../../services/session-service.service';
 import { HttpClient } from '@angular/common/http';
+import type { usersession } from '../../interfaces/session-interface';
+import { wishlistitem } from '../../interfaces/wishlist-item-interface';
 
 @Component({
   selector: 'app-wishlist',
@@ -10,15 +12,17 @@ import { HttpClient } from '@angular/common/http';
 export class WishlistComponent {
 
   userId: number;
-  userData: any;
+  userData:  usersession | null;
   
-  wishlistItems: any;
+  wishlistItems: wishlistitem[] = [];
 
   constructor(private sessionService: SessionServiceService, private http: HttpClient) {
     
-    this.userData = sessionService.getUserSession();
-    this.userId = this.userData['id'];
-    console.log(this.userId);
+    this.userData = this.sessionService.userLoggedData;
+    this.userId = this.sessionService.userLoggedId;
+
+    // TODO
+    // Pending to cleanup the any array in here
 
     this.http.get<any[]>(`http://localhost:8080/shoppingcart/v2/wishlist/${ this.userId }/details`)
     .subscribe( (response) => {
