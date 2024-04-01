@@ -6,9 +6,16 @@ import type { usersession } from '../interfaces/session-interface';
 })
 export class SessionServiceService {
 
+  public userLoggedData: usersession | null;
+  public userLoggedId: number;
+
   constructor() {
 
-    this.getUserSession();
+    this.userLoggedData = this.getUserSession();
+    this.userLoggedId = this.userLoggedData!['id']; // what '!' means is that it will never be null, making the error go away
+
+    console.log(this.userLoggedData);
+    console.log(this.userLoggedId);
 
   }
 
@@ -17,7 +24,7 @@ export class SessionServiceService {
     let data = String(localStorage.getItem('userSession'));
     let parsedData = JSON.parse(data);
 
-    console.log(parsedData);
+    //console.log(parsedData);
     return parsedData;
 
   }
@@ -27,6 +34,9 @@ export class SessionServiceService {
   }
 
   destroyUserSession(){
+    this.userLoggedData = null;
+    this.userLoggedId = 0;
+
     localStorage.removeItem('userSession');
   }
 
