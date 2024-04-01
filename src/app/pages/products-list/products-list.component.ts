@@ -9,17 +9,17 @@ import { SessionServiceService } from '../../services/session-service.service';
 })
 export class ProductsListComponent {
 
+  products: product[] = [];
+
   constructor(private http: HttpClient){
 
     this.getProducts();
 
   }
 
-  products!: any;
-
   getProducts(){
 
-    this.http.get<product>('http://localhost:8080/shoppingcart/v2/products')
+    this.http.get<product[]>('http://localhost:8080/shoppingcart/v2/products')
     .subscribe( (data) => {
 
       this.products = data;
