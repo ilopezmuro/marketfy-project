@@ -3,7 +3,8 @@
 <div class="listbody">
 @for (product of products; track product.product_id) {
 
-  <mat-card class="card">
+  <mat-card class="card" (mouseover)="getIfFavorite(product.product_id)">
+    <button style="position: absolute;">favorite now</button>
 
     <mat-card-header>
       <mat-card-title>
