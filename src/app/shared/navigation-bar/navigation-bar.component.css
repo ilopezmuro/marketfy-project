@@ -1,0 +1,15 @@
+.navopt {
+    flex-grow: 0.06;
+    height: auto;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.navopt:hover {
+    background-color: red;
+    cursor: pointer;
+}

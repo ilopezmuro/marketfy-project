@@ -1,9 +1,35 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-info">
+<mat-toolbar color="primary">
+
+  <div style="padding-right: 50px;"><a routerLink="/">Marketfy</a></div>
+
+  <div style="width: 80%; height: 100%; display: flex; flex-direction: row;">
+
+    <div class="navopt"><a routerLink="/">Home</a></div>
+
+    @if (userData == null) {
+
+      <div class="navopt"><a routerLink="/login">Login</a></div>
+
+    }
+    @else {
+
+      <div class="navopt"><a href="" (click)="callToDestroySession()">Logout</a></div>
+      <div class="navopt"><a routerLink="/wishlist">Wishlist</a></div>
+      <div class="navopt"><a routerLink="/checkout">Checkout</a></div>
+      <div class="navopt"><a routerLink="/order-history">Order history</a></div>
+
+    }
+
+  </div>
+
+</mat-toolbar>
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-info">
 
     <a class="navbar-brand text-light" href="#">Marketfy</a>
   
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <div class="navbar-toggler-icon"></div>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -18,9 +44,9 @@
           <a class="nav-link text-light">Button</a>
         </li>
 
-        <!--<li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link text-light" routerLink="/product-details">Product details</a>
-        </li>-->
+        </li>
 
         @if (userData == null) {
 
@@ -50,4 +76,4 @@
   
     </div>
   
-  </nav>
+  </nav>-->

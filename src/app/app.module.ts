@@ -15,6 +15,11 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderHistoryComponent } from './pages/order-history/order-history.component';
 
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +36,11 @@ import { OrderHistoryComponent } from './pages/order-history/order-history.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

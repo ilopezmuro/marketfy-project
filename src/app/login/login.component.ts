@@ -26,8 +26,6 @@ export class LoginComponent {
 
   onSubmit(){
 
-    /*console.log(this.reactiveForm.controls['email'].value);
-    console.log(this.reactiveForm.controls['password'].value);*/
     this.responseThrewError = false;
 
     let bodyRequest = {
@@ -49,8 +47,12 @@ export class LoginComponent {
           }
 
           this.sessionService.saveUserSession(saveSession);
+          
+          setTimeout(() => {
+            
+            this.route.navigate(['/']);
 
-          this.route.navigate(['/']);
+          }, 1000);
 
         });
 

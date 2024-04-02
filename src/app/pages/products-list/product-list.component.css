@@ -1,0 +1,21 @@
+.listbody {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    max-width: 300px;
+    border-style: ridge;
+    border-width: 1px;
+    border-color: gray;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.matcardbody {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

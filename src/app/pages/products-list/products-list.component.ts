@@ -1,10 +1,10 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import type { product } from '../../interfaces/product-interface';
-import { SessionServiceService } from '../../services/session-service.service';
 
 @Component({
   selector: 'app-products-list',
+  styleUrl: 'product-list.component.css',
   templateUrl: './products-list.component.html',
 })
 export class ProductsListComponent {

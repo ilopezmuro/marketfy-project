@@ -1,21 +1,25 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import type { usersession } from '../interfaces/session-interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SessionServiceService {
+export class SessionServiceService implements OnInit {
 
-  public userLoggedData: usersession | null;
-  public userLoggedId: number;
+  public userLoggedData: usersession | null = null;
+  public userLoggedId: number = 0;
 
   constructor() {
 
     this.userLoggedData = this.getUserSession();
-    this.userLoggedId = this.userLoggedData!['id']; // what '!' means is that it will never be null, making the error go away
 
-    console.log(this.userLoggedData);
-    console.log(this.userLoggedId);
+    if(this.userLoggedData){
+
+      this.userLoggedId = this.userLoggedData!['id']; // what '!' means is that it will never be null, making the error go away
+      console.log(this.userLoggedData);
+      console.log(this.userLoggedId);
+
+    }
 
   }
 
@@ -38,6 +42,20 @@ export class SessionServiceService {
     this.userLoggedId = 0;
 
     localStorage.removeItem('userSession');
+  }
+
+  ngOnInit(){
+    
+    this.userLoggedData = this.getUserSession();
+
+    if(this.userLoggedData){
+
+      this.userLoggedId = this.userLoggedData!['id']; // what '!' means is that it will never be null, making the error go away
+      console.log(this.userLoggedData);
+      console.log(this.userLoggedId);
+
+    }
+
   }
 
 }

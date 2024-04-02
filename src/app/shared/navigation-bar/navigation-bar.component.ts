@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SessionServiceService } from '../../services/session-service.service';
 import { Router } from '@angular/router';
 import { usersession } from '../../interfaces/session-interface';
 
 @Component({
   selector: 'app-navigation-bar',
+  styleUrl: 'navigation-bar.component.css',
   templateUrl: './navigation-bar.component.html'
 })
 export class NavigationBarComponent {
