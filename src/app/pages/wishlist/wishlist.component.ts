@@ -16,6 +16,8 @@ export class WishlistComponent {
   
   wishlistItems: wishlistitem[] = [];
 
+  displayedColumns: string[] = ['ID', 'name', 'price', 'description'];
+
   constructor(private sessionService: SessionServiceService, private http: HttpClient) {
     
     this.userData = this.sessionService.userLoggedData;
