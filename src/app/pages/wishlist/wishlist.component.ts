@@ -12,8 +12,8 @@ import { CheckoutServiceService } from '../../services/checkout-service.service'
 })
 export class WishlistComponent {
 
-  userId: number;
-  userData:  usersession | null;
+  userId: number = 0;
+  userData:  usersession | null = null;
   
   wishlistItems: wishlistitem[] = [];
 
@@ -21,6 +21,12 @@ export class WishlistComponent {
 
   constructor(private sessionService: SessionServiceService, private http: HttpClient, private checkooutService: CheckoutServiceService) {
     
+    this.fetchWishData();
+
+  }
+
+  fetchWishData(){
+
     this.userData = this.sessionService.userLoggedData;
     this.userId = this.sessionService.userLoggedId;
 
@@ -44,7 +50,6 @@ export class WishlistComponent {
 
       });
 
-      //console.log(mappedWishlistItems);
       this.wishlistItems = mappedWishlistItems;
 
     });
@@ -54,6 +59,20 @@ export class WishlistComponent {
   sendProductToCart(product_id: number, product_name: string, product_price: number){
 
     this.checkooutService.addToCart(product_id, product_name, product_price);
+
+  }
+
+  deleteWishListItem(wish_id: number){
+
+    this.http.get(`http://localhost:8080/shoppingcart/v2/wishlist/delete-product/${ wish_id }`, { responseType: 'text' })
+    .subscribe( (response) => {
+
+      this.wishlistItems = [];
+      console.log(response);
+
+      this.fetchWishData();
+      
+    });
 
   }
 
