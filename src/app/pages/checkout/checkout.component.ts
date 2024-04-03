@@ -19,8 +19,14 @@ export class CheckoutComponent {
 
   // Reminder: "!" means never null, making the compiling error go away
   constructor(private http: HttpClient, private sessionService: SessionServiceService, private route: Router, private checkooutService: CheckoutServiceService) {
+    this.initializeCheckout();
+  }
+
+  initializeCheckout(){
+
     this.shoppingCart = this.checkooutService.shoppingCart!;
     this.totalPrice = this.checkooutService.totalPrice;
+
   }
 
   proceedPayout(){
@@ -49,7 +55,6 @@ export class CheckoutComponent {
           "user_id": userId,
           "product_id": item.product_id
         };
-
         this.http.post('http://localhost:8080/shoppingcart/v2/products/buy', bodyRequest,  { responseType: 'text' })
         .subscribe( (response) => {
 
@@ -68,6 +73,13 @@ export class CheckoutComponent {
       this.route.navigate(['/']);
 
     }, routerInterval + 1000);
+
+  }
+
+  sendToDelete(id: number){
+
+    this.checkooutService.deleteShoppingCartItemById(id);
+    this.initializeCheckout();
 
   }
 

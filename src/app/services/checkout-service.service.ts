@@ -6,7 +6,7 @@ import { ProductCheckout } from '../classes/ProductCheckout';
 })
 export class CheckoutServiceService {
 
-  shoppingCart: ProductCheckout[] | null = [];
+  shoppingCart: ProductCheckout[] = [];
   totalPrice: number = 0;
 
   constructor() { }
@@ -22,8 +22,22 @@ export class CheckoutServiceService {
   }
 
   unsetCart(){
-    this.shoppingCart = null;
-    this.totalPrice = 0;
+    this.shoppingCart = [];
+  }
+
+  deleteShoppingCartItemById(index: number){
+
+    this.shoppingCart.splice(index, 1);
+    
+    let newCount = 0;
+    this.shoppingCart.forEach( (item) => {
+
+      newCount += item.product_price;
+
+    });
+    
+    this.totalPrice = newCount;
+
   }
 
 }
