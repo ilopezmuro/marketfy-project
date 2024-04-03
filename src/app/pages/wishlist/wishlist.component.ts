@@ -67,7 +67,6 @@ export class WishlistComponent {
     this.http.get(`http://localhost:8080/shoppingcart/v2/wishlist/delete-product/${ wish_id }`, { responseType: 'text' })
     .subscribe( (response) => {
 
-      this.wishlistItems = [];
       console.log(response);
 
       this.fetchWishData();
