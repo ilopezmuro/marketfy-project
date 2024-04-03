@@ -1,62 +1,95 @@
-<div class="w-100 h-100">
+<div class="registercontainer">
 
-    <div class="mx-auto mt-5 p-3 shadow-lg" style="width: 500px; height: 100%;">
+    <div class="registerbox">
 
-        <a class="btn btn-primary mb-3" routerLink="/login">Return to login</a>
+        <div>
+            <a routerLink="/login"><button mat-raised-button color="primary">Return to login</button></a>
+        </div>
 
-        <h1 class="fs-3 text-center">Register account</h1>
+        <div class="registertitle">
+            <h1>Register</h1>
+        </div>
 
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form class="fullwidth" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        
+            <div class="namelastinputs">
 
-            <div class="form-group mb-4 container d-flex justify-content-between p-0">
-                <div class="col-5">
+                <div class="namewidths">
 
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" name="name" formControlName="name"/>
+                    <mat-form-field class="fullwidth">
+    
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="email@example.com" formControlName="name" />
+            
+                    </mat-form-field>
 
                 </div>
-                <div class="col-5">
 
-                    <label for="last_name">Last name:</label>
-                    <input type="text" class="form-control" name="last_name" formControlName="last_name"/>
+                <div class="namewidths">
+
+                    <mat-form-field class="fullwidth">
+    
+                        <mat-label>Last name</mat-label>
+                        <input matInput formControlName="last_name" />
+            
+                    </mat-form-field>
 
                 </div>
+
             </div>
 
-            <div class="form-group mb-4">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" name="email" formControlName="email"/>
+            <div class="fullwidth">
+
+                <mat-form-field class="fullwidth">
+    
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" />
+        
+                </mat-form-field>
+
             </div>
 
-            <div class="form-group mb-4">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" name="password" formControlName="password"/>
+            <div class="fullwidth">
+
+                <mat-form-field class="fullwidth">
+    
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" />
+        
+                </mat-form-field>
+
             </div>
 
-            <div class="form-group mb-4">
-                <label for="bio">Bio:</label>
-                <textarea type="text" class="form-control" name="bio" rows="3" formControlName="bio"></textarea>
+            <div class="fullwidth">
+
+                <mat-form-field class="fullwidth">
+    
+                    <mat-label>Bio</mat-label>
+                    <textarea matInput rows="3" formControlName="bio"></textarea>
+        
+                </mat-form-field>
+
             </div>
 
-            <div class="form-group mb-4">
-                <label for="area_of_interest">Area of interest:</label>
-                <input type="text" class="form-control" name="area_of_interest" formControlName="area_of_interest"/>
-            </div>
+            <div class="fullwidth">
 
-            <div class="d-flex justify-content-center mb-3">
-                <button class="btn btn-primary" type="submit">Register</button>
-            </div>
+                <mat-form-field class="fullwidth">
+    
+                    <mat-label>Area of interest</mat-label>
+                    <input matInput formControlName="area_of_interest" />
+        
+                </mat-form-field>
 
+            </div>
+    
+            <div class="registerbtn">
+
+                <button mat-raised-button color="primary" type="submit">Register</button>
+
+            </div>
+    
         </form>
-
-        @if (emptyFields) {
-
-            <div class="alert alert-danger" role="alert">
-                Something went wrong, there is an empty space.
-            </div>
-
-        }
-
+    
     </div>
 
 </div>

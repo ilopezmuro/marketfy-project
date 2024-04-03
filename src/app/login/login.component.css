@@ -1,0 +1,28 @@
+.logincontainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.loginbox {
+    width: 500px;
+    background-color: cornflowerblue;
+    margin-top: 40px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logintitle {
+    text-align: center;
+    color: white;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.btncreate {
+    display: flex;
+    justify-content: center;
+}

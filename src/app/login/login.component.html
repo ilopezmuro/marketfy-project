@@ -1,41 +1,55 @@
-<div class="w-100 h-100">
+<div class="logincontainer">
 
-    <div class="mx-auto mt-5 p-3 shadow-lg" style="width: 500px; height: 100%;">
+    <div class="loginbox">
 
-        <a class="btn btn-primary mb-3" routerLink="/">Return to main pages</a>
+        <div>
+            <a routerLink="/"><button mat-raised-button color="primary">Return to main page</button></a>
+        </div>
 
-        <h1 class="fs-3 text-center">Login</h1>
+        <div class="logintitle">
+            <h1>Log in</h1>
+        </div>
 
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <form class="fullwidth" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        
+            <div class="fullwidth">
 
-            <div class="form-group mb-5">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email" formControlName="email"/>
+                <mat-form-field class="fullwidth">
+    
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput placeholder="email@example.com" formControlName="email" />
+        
+                </mat-form-field>
+
             </div>
 
-            <div class="form-group mb-5">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" formControlName="password"/>
+            <div class="fullwidth">
+
+                <mat-form-field class="fullwidth">
+    
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput formControlName="password" />
+        
+                </mat-form-field>
+
+            </div>
+    
+            <div class="btncreate">
+
+                <button mat-raised-button color="primary" type="submit">Log in</button>
+
             </div>
 
-            <div class="d-flex justify-content-center mb-3">
-                <button class="btn btn-primary" type="submit">Log in</button>
-            </div>
+            <br />
+            
+            <div class="btncreate">
 
-            <div class="d-flex justify-content-center mb-3">
-                <p class="">Not registered? <a routerLink="/register">Create an account.</a></p>
-            </div>
+                <p>Not registered? <a routerLink="/register">Create an account.</a></p>
 
+            </div>
+    
         </form>
-
-        @if (responseThrewError) {
-
-            <div class="alert alert-danger" role="alert">
-                Something went wrong, check credentials again.
-            </div>
-
-        }
-
+    
     </div>
 
 </div>
