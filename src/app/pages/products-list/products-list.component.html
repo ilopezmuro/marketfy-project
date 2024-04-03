@@ -22,7 +22,7 @@
         @if (product.total_products_inventory > 0) {
 
           <div>
-            <p>$ {{ product.price }}</p>
+            <p style="color: green; font-weight: bold;">$ {{ product.price }}</p>
             <p>Stock: {{ product.total_products_inventory }}</p>
           </div>
           <div>
@@ -34,7 +34,7 @@
         @else {
 
           <div>
-            <p style="color: red;">Out of stock</p>
+            <p style="color: red; font-weight: bold;">Out of stock</p>
           </div>
 
         }
