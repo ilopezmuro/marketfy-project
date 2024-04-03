@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { SessionServiceService } from '../../services/session-service.service';
 import { Router } from '@angular/router';
+import { CheckoutServiceService } from '../../services/checkout-service.service';
+import { ProductCheckout } from '../../classes/ProductCheckout';
 
 @Component({
   selector: 'app-checkout',
@@ -15,14 +17,9 @@ export class CheckoutComponent {
 
   clicked: boolean = false;
 
-  constructor(private http: HttpClient, private sessionService: SessionServiceService, private route: Router) {}
-
-  addToCart(){
-
-    let product: ProductCheckout = new ProductCheckout(1, "rasuradora", 429);
-    this.totalPrice += product.product_price;
-    this.shoppingCart.push(product);
-
+  constructor(private http: HttpClient, private sessionService: SessionServiceService, private route: Router, private checkooutService: CheckoutServiceService) {
+    this.shoppingCart = this.checkooutService.shoppingCart;
+    this.totalPrice = this.checkooutService.totalPrice;
   }
 
   proceedPayout(){
@@ -30,14 +27,13 @@ export class CheckoutComponent {
     let interval = 1000;
     let routerInterval = 0;
 
-    this.shoppingCart.forEach( (item, index, object) => {
+    this.checkooutService.shoppingCart.forEach( (item, index, object) => {
 
       routerInterval = interval * index;
 
       setTimeout(() => {
 
-        let userData =  this.sessionService.getUserSession();
-        let userId = userData['id'];
+        let userId = this.sessionService.userLoggedId;
   
         let dateObject = new Date();
         let yyyy = dateObject.getFullYear();
@@ -71,18 +67,4 @@ export class CheckoutComponent {
 
   }
 
-}
-
-export class ProductCheckout {
-  product_id: number;
-  product_name: string;
-  product_price: number;
-
-  constructor(id: number, name: string, price: number){
-
-    this.product_id = id;
-    this.product_name = name;
-    this.product_price = price;
-
-  }
 }

@@ -3,7 +3,7 @@
 <div class="listbody">
 @for (product of products; track product.product_id) {
 
-  <mat-card class="card" (mouseover)="getIfFavorite(product.product_id)">
+  <mat-card class="card">
     <button style="position: absolute;">favorite now</button>
 
     <mat-card-header>
@@ -26,7 +26,8 @@
             <p>Stock: {{ product.total_products_inventory }}</p>
           </div>
           <div>
-            <button mat-raised-button color="primary" [routerLink]="['/product-details', product.product_id]">Add to cart</button>
+            <!--<button mat-raised-button color="primary" [routerLink]="['/product-details', product.product_id]">Add to cart</button>-->
+            <button mat-raised-button color="primary" (click)="sendProductToCart(product.product_id, product.name, product.price)">Add to cart</button>
           </div>
 
         }
