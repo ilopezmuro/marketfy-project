@@ -12,6 +12,8 @@ export class OrderHistoryComponent {
 
   orderHistoryDetails: orderitem[] = [];
 
+  displayedColumns: string[] = ['ID', 'product', 'price', 'date'];
+
   constructor(private http: HttpClient, private sessionService: SessionServiceService) { 
 
     let userId = this.sessionService.userLoggedId;
