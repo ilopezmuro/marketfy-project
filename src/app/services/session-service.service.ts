@@ -11,6 +11,12 @@ export class SessionServiceService implements OnInit {
 
   constructor() {
 
+    this.sessionInitializer();
+
+  }
+
+  sessionInitializer(){
+
     this.userLoggedData = this.getUserSession();
 
     if(this.userLoggedData){

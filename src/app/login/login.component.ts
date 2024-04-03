@@ -48,13 +48,10 @@ export class LoginComponent {
           }
 
           this.sessionService.saveUserSession(saveSession);
+          this.sessionService.sessionInitializer();
+
+          this.route.navigate(['/']);
           
-          setTimeout(() => {
-            
-            this.route.navigate(['/']);
-
-          }, 1000);
-
         });
 
       }

@@ -8,7 +8,7 @@ import { usersession } from '../../interfaces/session-interface';
   styleUrl: 'navigation-bar.component.css',
   templateUrl: './navigation-bar.component.html'
 })
-export class NavigationBarComponent {
+export class NavigationBarComponent implements OnInit {
 
   userData: usersession;
 
@@ -23,6 +23,12 @@ export class NavigationBarComponent {
     this.sessionService.destroyUserSession();
     this.route.navigate(['/']);
 
+  }
+
+  ngOnInit(){
+
+    this.userData = this.sessionService.userLoggedData!;  // what '!' means is that it will never be null, making the error go away
+    
   }
 
 }
