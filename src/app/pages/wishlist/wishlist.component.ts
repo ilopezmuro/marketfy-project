@@ -3,6 +3,7 @@ import { SessionServiceService } from '../../services/session-service.service';
 import { HttpClient } from '@angular/common/http';
 import type { usersession } from '../../interfaces/session-interface';
 import { wishlistitem } from '../../interfaces/wishlist-item-interface';
+import { CheckoutServiceService } from '../../services/checkout-service.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -16,9 +17,9 @@ export class WishlistComponent {
   
   wishlistItems: wishlistitem[] = [];
 
-  displayedColumns: string[] = ['ID', 'name', 'price', 'description'];
+  displayedColumns: string[] = ['ID', 'name', 'price', 'description', 'action'];
 
-  constructor(private sessionService: SessionServiceService, private http: HttpClient) {
+  constructor(private sessionService: SessionServiceService, private http: HttpClient, private checkooutService: CheckoutServiceService) {
     
     this.userData = this.sessionService.userLoggedData;
     this.userId = this.sessionService.userLoggedId;
@@ -34,9 +35,10 @@ export class WishlistComponent {
         return {
 
           wish_id: item[0],
-          product_name: item[1],
-          product_price: item[2],
-          product_description: item[3]
+          product_id: item[1],
+          product_name: item[2],
+          product_price: item[3],
+          product_description: item[4]
 
         };
 
@@ -46,6 +48,12 @@ export class WishlistComponent {
       this.wishlistItems = mappedWishlistItems;
 
     });
+
+  }
+
+  sendProductToCart(product_id: number, product_name: string, product_price: number){
+
+    this.checkooutService.addToCart(product_id, product_name, product_price);
 
   }
 

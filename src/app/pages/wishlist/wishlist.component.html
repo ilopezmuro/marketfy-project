@@ -32,6 +32,13 @@
               <th mat-header-cell *matHeaderCellDef> Description </th>
               <td mat-cell *matCellDef="let item"> {{item.product_description}} </td>
             </ng-container>
+
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let item">
+                    <button (click)="sendProductToCart(item.product_id, item.product_name, item.product_price)">Add to cart</button>
+                </td>
+              </ng-container>
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

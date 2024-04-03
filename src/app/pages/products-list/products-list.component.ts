@@ -18,7 +18,6 @@ export class ProductsListComponent {
     this.getProducts();
 
   }
-
   /*getIfFavorite(id: number){
     let user_id = this.sessionService.userLoggedId;
 
@@ -30,6 +29,24 @@ export class ProductsListComponent {
     });
 
   }*/
+
+  sendToWishList(product_id: number){
+    let userId = this.sessionService.userLoggedId;
+
+    let bodyRequest = {
+      wish_id: 1,
+      user_id: userId,
+      product_id: product_id
+    };
+
+    this.http.post('http://localhost:8080/shoppingcart/v2/wishlist/add', bodyRequest, { responseType: 'text' })
+    .subscribe( (response) => {
+
+      console.log(response);
+
+    });
+
+  }
 
   getProducts(){
 

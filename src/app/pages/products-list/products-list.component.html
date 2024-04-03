@@ -4,7 +4,7 @@
 @for (product of products; track product.product_id) {
 
   <mat-card class="card">
-    <button style="position: absolute;">favorite now</button>
+    <button style="position: absolute;" (click)="sendToWishList(product.product_id)">favorite now</button>
 
     <mat-card-header>
       <mat-card-title>

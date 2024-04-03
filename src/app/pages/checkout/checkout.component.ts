@@ -17,8 +17,9 @@ export class CheckoutComponent {
 
   clicked: boolean = false;
 
+  // Reminder: "!" means never null, making the compiling error go away
   constructor(private http: HttpClient, private sessionService: SessionServiceService, private route: Router, private checkooutService: CheckoutServiceService) {
-    this.shoppingCart = this.checkooutService.shoppingCart;
+    this.shoppingCart = this.checkooutService.shoppingCart!;
     this.totalPrice = this.checkooutService.totalPrice;
   }
 
@@ -27,7 +28,8 @@ export class CheckoutComponent {
     let interval = 1000;
     let routerInterval = 0;
 
-    this.checkooutService.shoppingCart.forEach( (item, index, object) => {
+    // Reminder: "!" means never null, making the compiling error go away
+    this.checkooutService.shoppingCart!.forEach( (item, index, object) => {
 
       routerInterval = interval * index;
 
@@ -60,6 +62,8 @@ export class CheckoutComponent {
     });
 
     setTimeout( () => {
+
+      this.checkooutService.unsetCart();
 
       this.route.navigate(['/']);
 
