@@ -1,5 +1,6 @@
 <app-navigation-bar></app-navigation-bar>
 
+@defer {
 <div class="listbody">
 @for (product of products; track product.product_id) {
 
@@ -46,3 +47,16 @@
 
 }
 </div>
+}
+@placeholder(minimum 1000ms) {
+
+  <div class="loadingspinner">
+
+    <div>
+
+      <mat-spinner></mat-spinner>
+
+    </div>
+
+  </div>
+}

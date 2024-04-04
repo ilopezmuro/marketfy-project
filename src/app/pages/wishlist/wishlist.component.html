@@ -2,7 +2,9 @@
 
     <h1>Your wishlist</h1>
 
-    <div class="tablecontainer">
+    @defer {
+
+      <div class="tablecontainer">
 
         <table mat-table [dataSource]="wishlistItems" class="mat-elevation-z8">
 
@@ -45,4 +47,18 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
         
-    </div>
+      </div>
+
+    }
+    @placeholder(minimum 1000ms) {
+    
+      <div class="loadingspinner">
+    
+        <div>
+    
+          <mat-spinner></mat-spinner>
+    
+        </div>
+    
+      </div>
+    }
