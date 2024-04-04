@@ -23,6 +23,7 @@ export class CheckoutServiceService {
 
   unsetCart(){
     this.shoppingCart = [];
+    this.totalPrice = 0;
   }
 
   deleteShoppingCartItemById(index: number){
