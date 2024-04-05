@@ -69,7 +69,6 @@ export class CheckoutComponent {
     setTimeout( () => {
 
       this.checkooutService.unsetCart();
-      this.totalPrice = 0;
 
       this.route.navigate(['/']);
 
