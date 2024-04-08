@@ -2,63 +2,80 @@
 
 <h1>Cart checkout</h1>
 
-<div class="cartcontainer">
-    <div class="divisioncontainers">
+@defer {
 
-        <table>
-
-            <thead>
-
-                <tr>
-                    <th scope="col">image</th>
-                    <th scope="col">product</th>
-                    <th scope="col">price</th>
-                    <th scope="col">Actions</th>
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                @for (product of shoppingCart; track $index) {
-
+    <div class="cartcontainer">
+        <div class="divisioncontainers">
+    
+            <table>
+    
+                <thead>
+    
                     <tr>
-                        <td>
-                            <img width="100" height="100" src="http://localhost:8080/shoppingcart/v2/images/{{ product.product_image }}" alt="image of product">
-                        </td>
-                        <td scope="row">{{ product.product_name }}</td>
-                        <td>$ {{ product.product_price }}</td>
-                        <td>
-                            <button (click)="sendToDelete($index)">delete from cart</button>
-                        </td>
+                        <th scope="col">image</th>
+                        <th scope="col">product</th>
+                        <th scope="col">price</th>
+                        <th scope="col">Actions</th>
                     </tr>
-
-                }
+    
+                </thead>
+    
+                <tbody>
+    
+                    @for (product of shoppingCart; track $index) {
+    
+                        <tr>
+                            <td>
+                                <img width="100" height="100" src="http://localhost:8080/shoppingcart/v2/images/{{ product.product_image }}" alt="image of product">
+                            </td>
+                            <td scope="row">{{ product.product_name }}</td>
+                            <td>$ {{ product.product_price }}</td>
+                            <td>
+                                <button (click)="sendToDelete($index)">delete from cart</button>
+                            </td>
+                        </tr>
+    
+                    }
+                    
+                </tbody>
                 
-            </tbody>
-            
-        </table>
-
-    </div>
-    <div style="width: 30%;">
-
-        <div class="shoppingcartcontainer">
-
-            <div class="totalcontainer">
-
-                <p>total to pay: $ {{ totalPrice }}</p>
-
-            </div>
-
-            <br />
-
-            <div class="paymentcontainer">
-
-                <button class="btn" color="primary" mat-raised-button [disabled]="clicked" (click)="proceedPayout(); clicked = true;">Proceed payment</button>
-
-            </div>
-
+            </table>
+    
         </div>
-
+        <div style="width: 35%;">
+    
+            <div class="shoppingcartcontainer">
+    
+                <div class="totalcontainer">
+    
+                    <p>total to pay: $ {{ totalPrice }}</p>
+    
+                </div>
+    
+                <br />
+    
+                <div class="paymentcontainer">
+    
+                    <button class="btn" color="primary" mat-raised-button [disabled]="clicked" (click)="proceedPayout(); clicked = true;">Proceed payment</button>
+    
+                </div>
+    
+            </div>
+    
+        </div>
     </div>
-</div>
+
+}
+@placeholder(minimum 1000ms) {
+
+    <div class="loadingspinner">
+
+        <div>
+    
+          <mat-spinner></mat-spinner>
+    
+        </div>
+    
+      </div>
+
+}

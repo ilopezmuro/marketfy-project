@@ -6,7 +6,7 @@
 }
 
 .divisioncontainers {
-    width: 60%;
+    width: 55%;
 }
 
 .totalcontainer {
@@ -28,7 +28,6 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    padding: 20px;
     justify-content: center;
 }
 
