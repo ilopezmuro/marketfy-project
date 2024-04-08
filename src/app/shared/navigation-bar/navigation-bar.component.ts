@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionServiceService } from '../../services/session-service.service';
 import { Router } from '@angular/router';
 import { usersession } from '../../interfaces/session-interface';
+import { CheckoutServiceService } from '../../services/checkout-service.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -12,7 +13,7 @@ export class NavigationBarComponent implements OnInit {
 
   userData: usersession;
 
-  constructor(private sessionService: SessionServiceService, private route: Router) { 
+  constructor(private sessionService: SessionServiceService, private route: Router, private checkoutService: CheckoutServiceService) { 
 
     this.userData = this.sessionService.userLoggedData!;  // what '!' means is that it will never be null, making the error go away
 
@@ -21,6 +22,7 @@ export class NavigationBarComponent implements OnInit {
   callToDestroySession(){
 
     this.sessionService.destroyUserSession();
+    this.checkoutService.clearCartLocal();
     this.route.navigate(['/']);
 
   }

@@ -72,6 +72,13 @@ export class CheckoutServiceService implements OnInit {
 
   }
 
+  clearCartLocal(){
+
+    this.shoppingCart = [];
+    localStorage.removeItem('storedCart');
+
+  }
+
   checkoutInitializer() {
 
     this.retrieveCartLocal();
