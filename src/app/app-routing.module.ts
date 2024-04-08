@@ -9,6 +9,7 @@ import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderHistoryComponent } from './pages/order-history/order-history.component';
 import { sessionGuard } from './guards/session.guard';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 const routes: Routes = [
   { path: '', component: ProductsListComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterUserComponent, canActivate: [sessionGuard]  },
   { path: 'wishlist', component: WishlistComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'order-history', component: OrderHistoryComponent }
+  { path: 'order-history', component: OrderHistoryComponent },
+  { path: 'edit-user', component: EditUserComponent }
 ];
 
 @NgModule({

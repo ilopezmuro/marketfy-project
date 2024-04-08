@@ -24,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     RegisterUserComponent,
     WishlistComponent,
     CheckoutComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
