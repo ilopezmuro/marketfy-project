@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import type { user } from '../interfaces/user-interface';
 import type { usersession } from '../interfaces/session-interface';
 import { SessionServiceService } from '../services/session-service.service';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -16,20 +17,25 @@ export class LoginComponent {
   loginForm: FormGroup;
   responseThrewError: boolean = false;
 
+  emailError: string = '';
+  passError: string = '';
+
   constructor(private http: HttpClient, private route: Router, private sessionService: SessionServiceService){
 
     this.loginForm = new FormGroup({
-      email: new FormControl(null),
-      password: new FormControl(null)
+      email: new FormControl('', { validators: [Validators.required, Validators.email], updateOn: 'submit' }),
+      password: new FormControl('', { validators: [Validators.required], updateOn: 'submit' })
     });
-
   }
 
   onSubmit(){
 
     this.responseThrewError = false;
 
-    let bodyRequest = {
+    // this is a string
+    console.log(this.loginForm.status);
+
+    /*let bodyRequest = {
       "email": this.loginForm.controls['email'].value,
       "password": this.loginForm.controls['password'].value
     }
@@ -61,7 +67,7 @@ export class LoginComponent {
 
       }
 
-    });
+    });*/
 
   }
 

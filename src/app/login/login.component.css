@@ -6,11 +6,13 @@
 
 .loginbox {
     width: 500px;
-    background-color: cornflowerblue;
     margin-top: 40px;
     padding: 30px;
     display: flex;
     flex-direction: column;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 10px 10px 10px grey;
 }
 
 .logintitle {
@@ -25,4 +27,9 @@
 .btncreate {
     display: flex;
     justify-content: center;
+}
+
+.textlink {
+    color: blue;
+    text-decoration: underline;
 }
