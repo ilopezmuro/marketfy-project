@@ -19,6 +19,8 @@ export class EditUserComponent implements OnInit {
 
   onSubmit(){
 
+    let user_id = this.sessionService.userLoggedId;
+
     let name = this.editForm.value['name'];
     let last_name = this.editForm.value['last_name'];
     let email = this.editForm.value['email'];
@@ -29,6 +31,7 @@ export class EditUserComponent implements OnInit {
     if(this.editForm.status != "INVALID"){
 
       let bodyRequest = {
+        "user_id": user_id,
         "name": name,
         "last_name": last_name,
         "email": email,
@@ -37,11 +40,11 @@ export class EditUserComponent implements OnInit {
         "area_of_interest": area_of_interest
       }
 
-      this.http.post('http://localhost:8080/shoppingcart/v2/users/save', bodyRequest, { responseType: 'text' })
+      this.http.post('http://localhost:8080/shoppingcart/v2/users/update', bodyRequest, { responseType: 'text' })
       .subscribe( (response) => {
 
         console.log(response);
-        this.route.navigate(['/login']);
+        this.route.navigate(['/']);
 
       });
 
