@@ -12,7 +12,7 @@ export class OrderHistoryComponent {
 
   orderHistoryDetails: orderitem[] = [];
 
-  displayedColumns: string[] = ['ID', 'product', 'price', 'date'];
+  displayedColumns: string[] = ['ID', 'image', 'product', 'price', 'date'];
 
   constructor(private http: HttpClient, private sessionService: SessionServiceService) { 
 
@@ -28,7 +28,8 @@ export class OrderHistoryComponent {
           order_id: item[0],
           order_date: item[1],
           product_name: item[2],
-          product_price: item[3]
+          product_price: item[3],
+          product_image: item[4]
 
         }
 
