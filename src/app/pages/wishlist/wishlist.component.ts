@@ -17,7 +17,7 @@ export class WishlistComponent {
   
   wishlistItems: wishlistitem[] = [];
 
-  displayedColumns: string[] = ['ID', 'name', 'price', 'description', 'action'];
+  displayedColumns: string[] = ['ID', 'image', 'name', 'price', 'description', 'action'];
 
   constructor(private sessionService: SessionServiceService, private http: HttpClient, private checkooutService: CheckoutServiceService) {
     
@@ -36,6 +36,8 @@ export class WishlistComponent {
     this.http.get<any[]>(`http://localhost:8080/shoppingcart/v2/wishlist/${ this.userId }/details`)
     .subscribe( (response) => {
 
+      console.log(response);
+
       const mappedWishlistItems: any[] = response.map( item => {
 
         return {
@@ -44,7 +46,8 @@ export class WishlistComponent {
           product_id: item[1],
           product_name: item[2],
           product_price: item[3],
-          product_description: item[4]
+          product_description: item[4],
+          product_image: item[5]
 
         };
 
