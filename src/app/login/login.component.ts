@@ -23,8 +23,8 @@ export class LoginComponent {
   constructor(private http: HttpClient, private route: Router, private sessionService: SessionServiceService){
 
     this.loginForm = new FormGroup({
-      email: new FormControl('', { validators: [Validators.required, Validators.email], updateOn: 'submit' }),
-      password: new FormControl('', { validators: [Validators.required], updateOn: 'submit' })
+      email: new FormControl('', { validators: [Validators.required, Validators.email] , updateOn: 'submit'}),
+      password: new FormControl('', { validators: [Validators.required] , updateOn: 'submit'})
     });
   }
 
@@ -32,42 +32,43 @@ export class LoginComponent {
 
     this.responseThrewError = false;
 
-    // this is a string
-    console.log(this.loginForm.status);
+    if(this.loginForm.status != "INVALID"){
 
-    /*let bodyRequest = {
-      "email": this.loginForm.controls['email'].value,
-      "password": this.loginForm.controls['password'].value
+      let bodyRequest = {
+        "email": this.loginForm.controls['email'].value,
+        "password": this.loginForm.controls['password'].value
+      }
+
+      this.http.post<boolean>('http://localhost:8080/shoppingcart/v2/users/login', bodyRequest)
+      .subscribe( (response) => {
+  
+        if(response){
+  
+          this.http.post<user>('http://localhost:8080/shoppingcart/v2/users/getuserbymail', bodyRequest.email)
+          .subscribe( (response) => {
+  
+            let saveSession: usersession = {
+              "id": response.user_id,
+              "email": response.email
+            }
+  
+            this.sessionService.saveUserSession(saveSession);
+            this.sessionService.sessionInitializer();
+  
+            this.route.navigate(['/']);
+            
+          });
+  
+        }
+        else{
+  
+          this.responseThrewError = true;
+  
+        }
+  
+      });
+
     }
-
-    this.http.post<boolean>('http://localhost:8080/shoppingcart/v2/users/login', bodyRequest)
-    .subscribe( (response) => {
-
-      if(response){
-
-        this.http.post<user>('http://localhost:8080/shoppingcart/v2/users/getuserbymail', bodyRequest.email)
-        .subscribe( (response) => {
-
-          let saveSession: usersession = {
-            "id": response.user_id,
-            "email": response.email
-          }
-
-          this.sessionService.saveUserSession(saveSession);
-          this.sessionService.sessionInitializer();
-
-          this.route.navigate(['/']);
-          
-        });
-
-      }
-      else{
-
-        this.responseThrewError = true;
-
-      }
-
-    });*/
 
   }
 

@@ -63,6 +63,16 @@
                 <p>Not registered? <a class="textlink" routerLink="/register">Create an account.</a></p>
 
             </div>
+
+            @if(responseThrewError){
+
+                <div class="errorMessage">
+
+                    Login failed. Check your credentials again.
+    
+                </div>
+
+            }
     
         </form>
     
