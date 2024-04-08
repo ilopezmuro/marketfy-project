@@ -1,15 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { ProductCheckout } from '../classes/ProductCheckout';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CheckoutServiceService {
+export class CheckoutServiceService implements OnInit {
 
   shoppingCart: ProductCheckout[] = [];
   totalPrice: number = 0;
 
-  constructor() { }
+  constructor() { 
+
+    this.checkoutInitializer();
+
+  }
 
   addToCart(id: number, name: string, price: number, image: string){
 
@@ -17,7 +21,7 @@ export class CheckoutServiceService {
     this.totalPrice += product.product_price;
     this.shoppingCart!.push(product); // Reminder: "!" means never null, making the compiling error go away
 
-    console.log(this.shoppingCart);
+    this.storeCartLocally();
 
   }
 
@@ -39,6 +43,45 @@ export class CheckoutServiceService {
     
     this.totalPrice = newCount;
 
+    this.storeCartLocally();
+
+  }
+
+  storeCartLocally(){
+
+    localStorage.setItem('storedCart', JSON.stringify(this.shoppingCart));
+
+  }
+
+  retrieveCartLocal(){
+
+    let retrievedItems = localStorage.getItem('storedCart');
+    if(retrievedItems != null){
+
+      let prepareParseData = String(retrievedItems);
+
+      this.shoppingCart = JSON.parse(prepareParseData);
+
+      this.shoppingCart.forEach( (item) => {
+
+        this.totalPrice += item.product_price;
+
+      });
+
+    }
+
+  }
+
+  checkoutInitializer() {
+
+    this.retrieveCartLocal();
+
+  }
+
+  ngOnInit(){
+
+    this.checkoutInitializer();
+    
   }
 
 }
