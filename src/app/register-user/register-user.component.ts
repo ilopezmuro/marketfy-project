@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Validator } from '@angular/forms';
 
 @Component({
   selector: 'app-register-user',
@@ -11,24 +12,21 @@ import { Router } from '@angular/router';
 export class RegisterUserComponent {
 
   registerForm: FormGroup;
-  emptyFields: boolean = false;
 
   constructor(private http: HttpClient, private route: Router){
 
     this.registerForm = new FormGroup({
-      name: new FormControl(null),
-      last_name: new FormControl(null),
-      email: new FormControl(null),
-      password: new FormControl(null),
-      bio: new FormControl(null),
-      area_of_interest: new FormControl(null)
+      name: new FormControl('', { validators: [Validators.required], updateOn: 'submit' }),
+      last_name: new FormControl('', { validators: [Validators.required], updateOn: 'submit' }),
+      email: new FormControl('', { validators: [Validators.required, Validators.email], updateOn: 'submit' }),
+      password: new FormControl('', { validators: [Validators.required], updateOn: 'submit' }),
+      bio: new FormControl('', { validators: [Validators.required], updateOn: 'submit' }),
+      area_of_interest: new FormControl('', { validators: [Validators.required], updateOn: 'submit' })
     });
 
   }
 
   onSubmit(){
-
-    this.emptyFields = false;
 
     let name = this.registerForm.value['name'];
     let last_name = this.registerForm.value['last_name'];
@@ -37,7 +35,7 @@ export class RegisterUserComponent {
     let bio = this.registerForm.value['bio'];
     let area_of_interest = this.registerForm.value['area_of_interest'];
 
-    if(name != null && last_name != null && email != null && password != null && bio != null && area_of_interest != null){
+    if(this.registerForm.status != "INVALID"){
 
       let bodyRequest = {
         "name": name,
@@ -55,11 +53,6 @@ export class RegisterUserComponent {
         this.route.navigate(['/login']);
 
       });
-
-    }
-    else{
-
-      this.emptyFields = true;
 
     }
 
