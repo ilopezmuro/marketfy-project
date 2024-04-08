@@ -59,9 +59,9 @@ export class ProductsListComponent {
 
   }
 
-  sendProductToCart(product_id: number, product_name: string, product_price: number){
+  sendProductToCart(product_id: number, product_name: string, product_price: number, product_image: string){
 
-    this.checkooutService.addToCart(product_id, product_name, product_price);
+    this.checkooutService.addToCart(product_id, product_name, product_price, product_image);
 
   }
 

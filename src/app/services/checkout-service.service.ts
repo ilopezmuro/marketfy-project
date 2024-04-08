@@ -11,9 +11,9 @@ export class CheckoutServiceService {
 
   constructor() { }
 
-  addToCart(id: number, name: string, price: number){
+  addToCart(id: number, name: string, price: number, image: string){
 
-    let product: ProductCheckout = new ProductCheckout(id, name, price);
+    let product: ProductCheckout = new ProductCheckout(id, name, price, image);
     this.totalPrice += product.product_price;
     this.shoppingCart!.push(product); // Reminder: "!" means never null, making the compiling error go away
 

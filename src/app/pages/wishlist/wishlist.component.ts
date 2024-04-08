@@ -36,8 +36,6 @@ export class WishlistComponent {
     this.http.get<any[]>(`http://localhost:8080/shoppingcart/v2/wishlist/${ this.userId }/details`)
     .subscribe( (response) => {
 
-      console.log(response);
-
       const mappedWishlistItems: any[] = response.map( item => {
 
         return {
@@ -59,9 +57,9 @@ export class WishlistComponent {
 
   }
 
-  sendProductToCart(product_id: number, product_name: string, product_price: number){
+  sendProductToCart(product_id: number, product_name: string, product_price: number, product_image: string){
 
-    this.checkooutService.addToCart(product_id, product_name, product_price);
+    this.checkooutService.addToCart(product_id, product_name, product_price, product_image);
 
   }
 
