@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
@@ -9,8 +10,10 @@
     border-style: ridge;
     border-width: 1px;
     border-color: gray;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+
+    padding: 20px;
+    margin-left: 0.9rem;
 }
 
 .matcardbody {
