@@ -8,8 +8,6 @@ import { NavigationBarComponent } from './shared/navigation-bar/navigation-bar.c
 import { ProductsListComponent } from './pages/products-list/products-list.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
-import { RegisterUserComponent } from './register-user/register-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
@@ -32,8 +30,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ProductDetailsComponent,
     NavigationBarComponent,
     ProductsListComponent,
-    LoginComponent,
-    RegisterUserComponent,
     WishlistComponent,
     CheckoutComponent,
     OrderHistoryComponent,
