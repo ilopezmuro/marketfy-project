@@ -41,4 +41,39 @@ export class OrderHistoryComponent {
 
   }
 
+  searchRegistryById(){
+
+    let element: HTMLInputElement = (document.getElementById('idinput') as HTMLInputElement);
+
+    let userId = this.sessionService.userLoggedId;
+
+    if(element.value != ''){
+
+      let id = element.value;
+
+      this.http.get<any[]>(`http://localhost:8080/shoppingcart/v2/products/${ userId }/order-details-specific?orderId=${id}`)
+      .subscribe( (response) => {
+  
+        const mappedOrderHistoryDetails: any[] = response.map( item => {
+  
+          return {
+  
+            order_id: item[0],
+            order_date: item[1],
+            product_name: item[2],
+            product_price: item[3],
+            product_image: item[4]
+  
+          }
+  
+        });
+  
+        this.orderHistoryDetails = mappedOrderHistoryDetails;
+  
+      });
+
+    }
+
+  }
+
 }

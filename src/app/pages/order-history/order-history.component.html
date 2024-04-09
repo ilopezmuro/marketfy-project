@@ -4,6 +4,11 @@
 
 @defer {
 
+  <div>
+    <input type="number" style="padding: 10px;" placeholder="Find order registry by its ID" id="idinput">
+    <button style="padding: 10px;" (click)="searchRegistryById()">Search</button>
+  </div>
+
   <div class="tablecontainer">
 
     <table mat-table [dataSource]="orderHistoryDetails" class="mat-elevation-z8">
