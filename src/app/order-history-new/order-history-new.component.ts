@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { SessionServiceService } from '../../services/session-service.service';
-import { orderitem } from '../../interfaces/order-item-interface';
+import { SessionServiceService } from '../services/session-service.service';
+import type { orderitem } from '../interfaces/order-item-interface';
 
 @Component({
-  selector: 'app-order-history',
-  templateUrl: './order-history.component.html',
-  styleUrl: './order-history.component.css'
+  selector: 'app-order-history-new',
+  templateUrl: './order-history-new.component.html',
+  styleUrl: './order-history-new.component.css'
 })
-export class OrderHistoryComponent {
+export class OrderHistoryNewComponent {
 
   orderHistoryDetails: orderitem[] = [];
 
