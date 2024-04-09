@@ -14,12 +14,13 @@ import { EditUserComponent } from './pages/edit-user/edit-user.component';
 const routes: Routes = [
   { path: '', component: ProductsListComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
-  { path: 'login', component: LoginComponent, canActivate: [sessionGuard] },
-  { path: 'register', component: RegisterUserComponent, canActivate: [sessionGuard]  },
+  /*{ path: 'login', component: LoginComponent, canActivate: [sessionGuard] },
+  { path: 'register', component: RegisterUserComponent, canActivate: [sessionGuard]  },*/
   { path: 'wishlist', component: WishlistComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'order-history', component: OrderHistoryComponent },
-  { path: 'edit-user', component: EditUserComponent }
+  { path: 'edit-user', component: EditUserComponent },
+  { path: 'auth-user', loadChildren: () => import('./auth-user/auth-user.module').then(m => m.AuthUserModule) }
 ];
 
 @NgModule({
