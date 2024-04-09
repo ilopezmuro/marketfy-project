@@ -33,4 +33,10 @@ export class NavigationBarComponent implements OnInit {
     
   }
 
+  changePage(link: string){
+
+    this.route.navigate([link]);
+
+  }
+
 }

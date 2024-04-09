@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
-import { SessionServiceService } from '../../services/session-service.service';
+import { SessionServiceService } from '../services/session-service.service';
 import { HttpClient } from '@angular/common/http';
-import type { usersession } from '../../interfaces/session-interface';
-import { wishlistitem } from '../../interfaces/wishlist-item-interface';
-import { CheckoutServiceService } from '../../services/checkout-service.service';
+import type { usersession } from '../interfaces/session-interface';
+import { wishlistitem } from '../interfaces/wishlist-item-interface';
+import { CheckoutServiceService } from '../services/checkout-service.service';
 
 @Component({
-  selector: 'app-wishlist',
-  templateUrl: './wishlist.component.html',
-  styleUrl: './wishlist.component.css'
+  selector: 'app-wish-list',
+  templateUrl: './wish-list.component.html',
+  styleUrl: './wish-list.component.css'
 })
-export class WishlistComponent {
+export class WishListComponent {
 
   userId: number = 0;
   userData:  usersession | null = null;

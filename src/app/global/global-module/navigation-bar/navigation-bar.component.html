@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
 
-  <div style="padding-right: 50px;"><a routerLink="/">Marketfy</a></div>
+  <div style="padding-right: 50px;"><a style="cursor: pointer;" (click)="changePage('/')">Marketfy</a></div>
 
   <div style="width: 80%; height: 100%; display: flex; flex-direction: row;">
 
-    <div class="navopt"><a routerLink="/">Home</a></div>
+    <div class="navopt"><a (click)="changePage('/')">Home</a></div>
 
     @if (userData == null) {
 
@@ -14,7 +14,7 @@
     @else {
 
       <div class="navopt"><a href="" (click)="callToDestroySession()">Logout</a></div>
-      <div class="navopt"><a routerLink="/wishlist">Wishlist</a></div>
+      <div class="navopt"><a (click)="changePage('wish-list')">Wishlist</a></div>
       <div class="navopt"><a routerLink="/checkout">Checkout</a></div>
       <div class="navopt"><a routerLink="/order-history">Order history</a></div>
 
@@ -25,5 +25,3 @@
   </div>
 
 </mat-toolbar>
-
-<router-outlet></router-outlet>
