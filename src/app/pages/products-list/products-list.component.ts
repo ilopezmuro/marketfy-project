@@ -16,6 +16,8 @@ export class ProductsListComponent {
   pageLimit: number = 0;
   currentPage: number = 0;
 
+  disableNextIfSinglePage: boolean = false;
+
   constructor(private http: HttpClient, private sessionService: SessionServiceService, private checkooutService: CheckoutServiceService){
 
     this.getProducts();
@@ -94,6 +96,56 @@ export class ProductsListComponent {
     this.currentPage -= 1;
     console.log(this.currentPage);
     this.getProducts();
+
+  }
+
+  searchProduct(e: Event){
+
+    let valueOfEvent = (e.target as HTMLInputElement).value;
+
+    this.currentPage = 0;
+
+    if(valueOfEvent != ''){
+
+      console.log(valueOfEvent);
+
+      this.http.get<number>(`http://localhost:8080/shoppingcart/v2/products/search-total-pages?searchQuery=${ valueOfEvent }`)
+      .subscribe( (newData) => {
+
+        if(newData == 1){
+
+          this.disableNextIfSinglePage = true;
+
+        }
+        else{
+
+          this.disableNextIfSinglePage = false;
+
+        }
+
+        this.pageLimit = newData;
+  
+      });
+
+      this.http.get<product[]>(`http://localhost:8080/shoppingcart/v2/products/search?searchQuery=${ valueOfEvent }&pageNumber=${ this.currentPage }`)
+      .subscribe( (data) => {
+  
+        this.products = data;
+
+      });
+
+    }
+    else{
+
+      console.log("text was set back to empty");
+
+      this.pageLimit = 0;
+      this.currentPage = 0;
+      this.disableNextIfSinglePage = false;
+
+      this.getProducts();
+
+    }
 
   }
 

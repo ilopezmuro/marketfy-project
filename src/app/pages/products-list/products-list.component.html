@@ -1,6 +1,13 @@
 <app-navigation-bar></app-navigation-bar>
 
 @defer {
+
+  <div style="width: 95%; margin-top: 5px; margin-bottom: 5px; padding: 10px;">
+
+    <input style="width: 100%; padding: 10px;" type="text" placeholder="Search product by its name" (change)="searchProduct($event)">
+
+  </div>
+
 <div class="listbody">
 @for (product of products; track product.product_id) {
 
@@ -50,7 +57,7 @@
 <div style="width: 100%; display: flex; justify-content: space-around; margin-bottom: 10px;">
 
   <button class="btn-prev" (click)="turnToPrevious()" [disabled]="currentPage <= 0">Previous page</button>
-  <button class="btn-next" (click)="turnToNext()" [disabled]="currentPage >= pageLimit - 1">Next page</button>
+  <button class="btn-next" (click)="turnToNext()" [disabled]="currentPage >= pageLimit - 1 || disableNextIfSinglePage">Next page</button>
 
 </div>
 
