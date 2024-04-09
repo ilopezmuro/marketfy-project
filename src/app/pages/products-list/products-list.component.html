@@ -47,6 +47,10 @@
 
 }
 </div>
+
+<button class="btn-prev" (click)="turnToPrevious()" [disabled]="currentPage <= 0">Previous page</button>
+<button class="btn-next" (click)="turnToNext()" [disabled]="currentPage >= pageLimit - 1">Next page</button>
+
 }
 @placeholder(minimum 1000ms) {
 

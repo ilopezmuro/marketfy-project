@@ -13,6 +13,9 @@ export class ProductsListComponent {
 
   products: product[] = [];
 
+  pageLimit: number = 0;
+  currentPage: number = 0;
+
   constructor(private http: HttpClient, private sessionService: SessionServiceService, private checkooutService: CheckoutServiceService){
 
     this.getProducts();
@@ -48,12 +51,25 @@ export class ProductsListComponent {
 
   }
 
+  getProductsPageTotalNumber(){
+
+    this.http.get<number>('http://localhost:8080/shoppingcart/v2/products/total-pages')
+    .subscribe( (data) => {
+
+      this.pageLimit = data;
+
+    });
+
+  }
+
   getProducts(){
 
-    this.http.get<product[]>('http://localhost:8080/shoppingcart/v2/products')
+    this.http.get<product[]>(`http://localhost:8080/shoppingcart/v2/products/paged?pageNumber=${ this.currentPage }`)
     .subscribe( (data) => {
 
       this.products = data;
+
+      this.getProductsPageTotalNumber();
 
     });
 
@@ -62,6 +78,22 @@ export class ProductsListComponent {
   sendProductToCart(product_id: number, product_name: string, product_price: number, product_image: string){
 
     this.checkooutService.addToCart(product_id, product_name, product_price, product_image);
+
+  }
+
+  turnToNext(){
+
+    this.currentPage += 1;
+    console.log(this.currentPage);
+    this.getProducts();
+
+  }
+
+  turnToPrevious(){
+
+    this.currentPage -= 1;
+    console.log(this.currentPage);
+    this.getProducts();
 
   }
 
