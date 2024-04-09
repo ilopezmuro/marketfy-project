@@ -5,7 +5,6 @@ import { ProductsListComponent } from './pages/products-list/products-list.compo
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderHistoryComponent } from './pages/order-history/order-history.component';
-import { sessionGuard } from './guards/session.guard';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 const routes: Routes = [
