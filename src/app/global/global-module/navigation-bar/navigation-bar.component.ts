@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionServiceService } from '../../services/session-service.service';
+import { SessionServiceService } from '../../../services/session-service.service';
 import { Router } from '@angular/router';
-import { usersession } from '../../interfaces/session-interface';
-import { CheckoutServiceService } from '../../services/checkout-service.service';
+import { usersession } from '../../../interfaces/session-interface';
+import { CheckoutServiceService } from '../../../services/checkout-service.service';
 
 @Component({
   selector: 'app-navigation-bar',

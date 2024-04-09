@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
-import { NavigationBarComponent } from './shared/navigation-bar/navigation-bar.component';
+import { GlobalModuleModule } from './global/global-module/global-module.module';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +28,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   declarations: [
     AppComponent,
     ProductDetailsComponent,
-    NavigationBarComponent,
     ProductsListComponent,
     WishlistComponent,
     CheckoutComponent,
@@ -38,6 +37,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    GlobalModuleModule,
     HttpClientModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
