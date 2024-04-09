@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { SessionServiceService } from '../../services/session-service.service';
+import { SessionServiceService } from '../services/session-service.service';
 import { Router } from '@angular/router';
-import { CheckoutServiceService } from '../../services/checkout-service.service';
-import { ProductCheckout } from '../../classes/ProductCheckout';
+import { CheckoutServiceService } from '../services/checkout-service.service';
+import { ProductCheckout } from '../classes/ProductCheckout';
 
 @Component({
-  selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.css'
+  selector: 'app-check-out',
+  templateUrl: './check-out.component.html',
+  styleUrl: './check-out.component.css'
 })
-export class CheckoutComponent {
+export class CheckOutComponent {
 
   shoppingCart: ProductCheckout[] = [];
   totalPrice: number = 0;
