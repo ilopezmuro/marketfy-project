@@ -9,7 +9,6 @@ import { ProductsListComponent } from './pages/products-list/products-list.compo
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { OrderHistoryComponent } from './pages/order-history/order-history.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
@@ -29,7 +28,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AppComponent,
     ProductDetailsComponent,
     ProductsListComponent,
-    WishlistComponent,
     CheckoutComponent,
     OrderHistoryComponent,
     EditUserComponent
