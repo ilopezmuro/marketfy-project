@@ -46,8 +46,17 @@
             <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action </th>
                 <td mat-cell *matCellDef="let item">
-                    <button (click)="sendProductToCart(item.product_id, item.product_name, item.product_price, item.product_image)">Add to cart</button>
-                    <button (click)="deleteWishListItem(item.wish_id)">Remove from wishlist</button>
+                    @if(item.stock > 0){
+
+                      <button (click)="sendProductToCart(item.product_id, item.product_name, item.product_price, item.product_image)">Add to cart</button>
+                      <button (click)="deleteWishListItem(item.wish_id)">Remove from wishlist</button>
+
+                    }
+                    @else {
+
+                      <p style="color: red">Product out of stock</p>
+
+                    }
                 </td>
               </ng-container>
           

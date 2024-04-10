@@ -45,7 +45,8 @@ export class WishListComponent {
           product_name: item[2],
           product_price: item[3],
           product_description: item[4],
-          product_image: item[5]
+          product_image: item[5],
+          stock: item[6]
 
         };
 
