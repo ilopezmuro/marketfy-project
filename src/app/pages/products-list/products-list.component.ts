@@ -89,6 +89,8 @@ export class ProductsListComponent {
     console.log(this.currentPage);
     this.getProducts();
 
+    window.scrollTo(0, 0);
+
   }
 
   turnToPrevious(){
@@ -96,6 +98,8 @@ export class ProductsListComponent {
     this.currentPage -= 1;
     console.log(this.currentPage);
     this.getProducts();
+
+    window.scrollTo(0, 0);
 
   }
 
