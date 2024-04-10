@@ -8,6 +8,7 @@ export class SessionServiceService implements OnInit {
 
   public userLoggedData: usersession | null = null;
   public userLoggedId: number = 0;
+  public token: string = '';
 
   constructor() {
 
@@ -22,6 +23,7 @@ export class SessionServiceService implements OnInit {
     if(this.userLoggedData){
 
       this.userLoggedId = this.userLoggedData!['id']; // what '!' means is that it will never be null, making the error go away
+      this.token = this.userLoggedData.email;
       console.log(this.userLoggedData);
       console.log(this.userLoggedId);
 
@@ -46,6 +48,7 @@ export class SessionServiceService implements OnInit {
   destroyUserSession(){
     this.userLoggedData = null;
     this.userLoggedId = 0;
+    this.token = '';
 
     localStorage.removeItem('userSession');
   }
