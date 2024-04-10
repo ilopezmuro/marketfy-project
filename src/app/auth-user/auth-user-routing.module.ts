@@ -7,7 +7,8 @@ import { sessionGuard } from '../guards/session.guard';
 const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [sessionGuard]  },
   { path: 'login', component: LoginComponent, canActivate: [sessionGuard]  },
-  { path: '', redirectTo: 'login', pathMatch: 'full'}
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: 'auth-user/login', redirectTo: 'login', pathMatch: 'full'},
 ];
 
 @NgModule({
