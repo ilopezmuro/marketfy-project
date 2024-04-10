@@ -8,7 +8,7 @@
 
     @if (userData == null) {
 
-      <div class="navopt"><a routerLink="auth-user/login">Login</a></div>
+      <div class="navopt"><a (click)="changePage('auth-user/login')">Login</a></div>
 
     }
     @else {
