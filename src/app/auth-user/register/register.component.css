@@ -39,3 +39,15 @@
 .namewidths {
     width: 48%;
 }
+
+.errorMessage {
+    width: 100;
+    background-color: #ff9999;
+    color: #b30000;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #b30000;
+    padding: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}

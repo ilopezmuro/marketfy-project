@@ -12,6 +12,8 @@ export class RegisterComponent {
 
   registerForm: FormGroup;
 
+  responseThrewError: boolean = false;
+
   constructor(private http: HttpClient, private route: Router){
 
     this.registerForm = new FormGroup({
@@ -48,8 +50,17 @@ export class RegisterComponent {
       this.http.post('http://localhost:8080/shoppingcart/v2/users/save', bodyRequest, { responseType: 'text' })
       .subscribe( (response) => {
 
-        console.log(response);
-        this.route.navigate(['auth-user/login']);
+        if(response != "ERROR"){
+
+          console.log(response);
+          this.route.navigate(['auth-user/login']);
+
+        }
+        else{
+
+          this.responseThrewError = true;
+
+        }
 
       });
 

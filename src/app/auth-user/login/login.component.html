@@ -39,7 +39,7 @@
                 <mat-form-field class="fullwidth">
     
                     <mat-label>Enter your password</mat-label>
-                    <input matInput formControlName="password" />
+                    <input type="password" matInput formControlName="password" />
                     @if(this.loginForm.controls['password'].errors?.['required']){
 
                         <mat-error>Password can't be empty</mat-error>

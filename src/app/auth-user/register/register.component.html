@@ -74,7 +74,7 @@
                 <mat-form-field class="fullwidth">
     
                     <mat-label>Password</mat-label>
-                    <input matInput formControlName="password" />
+                    <input type="password" matInput formControlName="password" />
                     @if(this.registerForm.controls['password'].errors?.['required']){
 
                         <mat-error>Password can't be empty</mat-error>
@@ -124,6 +124,16 @@
             </div>
     
         </form>
+
+        @if(responseThrewError){
+
+            <div class="errorMessage">
+
+                Error: the email you put is already being used by another user
+    
+            </div>
+
+        }
     
     </div>
 
