@@ -9,6 +9,8 @@
             <div class="registertitle">
                 <h1>Edit your profile</h1>
             </div>
+
+            <button mat-raised-button (click)="showStoredSession()" color="primary" type="button">Print user's current stored info</button><br />
     
             <form class="fullwidth" [formGroup]="editForm" (ngSubmit)="onSubmit()">
             

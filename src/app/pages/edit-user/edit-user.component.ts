@@ -44,6 +44,8 @@ export class EditUserComponent implements OnInit {
       .subscribe( (response) => {
 
         console.log(response);
+        this.sessionService.updateUserSession(email);
+        this.showStoredSession();
         this.route.navigate(['/']);
 
       });
@@ -79,6 +81,12 @@ export class EditUserComponent implements OnInit {
 
     });
     
+  }
+
+  showStoredSession(){
+
+    console.log(this.sessionService.getUserSession());
+
   }
 
 }
