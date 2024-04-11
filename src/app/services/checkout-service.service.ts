@@ -28,6 +28,8 @@ export class CheckoutServiceService implements OnInit {
   unsetCart(){
     this.shoppingCart = [];
     this.totalPrice = 0;
+
+    localStorage.removeItem('storedCart');
   }
 
   deleteShoppingCartItemById(index: number){
